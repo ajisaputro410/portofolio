@@ -1035,23 +1035,24 @@ section {
     min-width: 0;
 }
 
-/* Foto sertifikat */
+/* Foto sertifikat - ukuran tetap, tanpa border putih */
 #licenses-certifications .certificate-image-inside {
     box-sizing: border-box;
     display: flex;
-    flex: 0 0 130px;
-    width: 130px;
-    min-width: 130px;
-    height: 130px;
+    flex: 0 0 200px;
+    width: 200px;
+    min-width: 200px;
+    height: 200px;
     padding: 0;
     overflow: hidden;
     align-items: center;
     justify-content: center;
-    background: #fff;
-    border: 1px solid #dedede;
+    background: transparent;
+    border: none;
     border-radius: 8px;
 }
 
+/* Link gambar jika digunakan */
 #licenses-certifications .certificate-image-inside a {
     display: block;
     width: 100%;
@@ -1059,12 +1060,14 @@ section {
     cursor: pointer;
 }
 
+/* Gambar sertifikat */
 #licenses-certifications .certificate-image-inside img {
     display: block;
     width: 100%;
     height: 100%;
     object-fit: contain;
-    border-radius: 7px;
+    border: none;
+    border-radius: 8px;
     cursor: pointer;
 }
 
@@ -1089,6 +1092,7 @@ section {
     line-height: 1.5;
 }
 
+/* Tanggal dan Credential ID */
 #licenses-certifications .certificate-meta {
     margin: 0.3rem 0 0;
     color: var(--muted, #b3b3b3);
@@ -1146,6 +1150,7 @@ section {
         gap: 1.2rem;
     }
 
+    /* Ukuran foto HP tetap 85 × 85 px */
     #licenses-certifications .certificate-image-inside {
         flex-basis: 85px;
         width: 85px;
@@ -1166,6 +1171,7 @@ section {
         font-size: 1.15rem;
     }
 }
+
 /* =====================================================
    11. FOOTER
 ===================================================== */
