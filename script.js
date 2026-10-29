@@ -5,12 +5,16 @@ let currentImageIndex = 0;
 let mediaList = [];
 
 function initExperienceGallery() {
+  const cards = Array.from(document.querySelectorAll(".experience-linkedin-card"));
   const images = document.querySelectorAll(".experience-media-preview img");
   mediaList = [];
   images.forEach((img, index) => {
+    const card = img.closest(".experience-linkedin-card");
     mediaList.push({
       src: img.getAttribute("src"),
-      caption: img.getAttribute("alt") || "Work preview"
+      caption: img.getAttribute("alt") || "Work preview",
+      description: img.getAttribute("data-description") || "",
+      group: cards.indexOf(card) // penanda foto ini milik experience yang mana
     });
     img.setAttribute("data-index", index);
   });
@@ -20,6 +24,14 @@ if (document.readyState === "loading") {
   document.addEventListener("DOMContentLoaded", initExperienceGallery);
 } else {
   initExperienceGallery();
+}
+
+// Daftar index foto yang satu experience dengan foto yang sedang dibuka
+function getGroupIndexes() {
+  const group = mediaList[currentImageIndex].group;
+  return mediaList
+    .map((item, i) => (item.group === group ? i : -1))
+    .filter(i => i !== -1);
 }
 
 function openModal(element) {
@@ -37,19 +49,30 @@ function openModal(element) {
 function updateModalContent() {
   const modalImg = document.getElementById("modalImage");
   const modalCap = document.getElementById("modalCaption");
+  const modalDesc = document.getElementById("modalDesc");
   const item = mediaList[currentImageIndex];
   if (!modalImg || !item) return;
 
   modalImg.src = item.src;
   modalImg.alt = item.caption;
   if (modalCap) modalCap.textContent = item.caption;
+  if (modalDesc) modalDesc.textContent = item.description;
+
+  // Sembunyikan tombol prev/next kalau experience ini cuma punya 1 foto
+  const showNav = getGroupIndexes().length > 1;
+  document.querySelectorAll("#galleryModal .nav-btn").forEach(btn => {
+    btn.style.display = showNav ? "" : "none";
+  });
 }
 
 function changeImage(direction, event) {
   if (event) event.stopPropagation();
-  currentImageIndex += direction;
-  if (currentImageIndex >= mediaList.length) currentImageIndex = 0;
-  if (currentImageIndex < 0) currentImageIndex = mediaList.length - 1;
+
+  // Geser hanya di antara foto dalam experience yang sama
+  const indexes = getGroupIndexes();
+  const pos = indexes.indexOf(currentImageIndex);
+  const nextPos = (pos + direction + indexes.length) % indexes.length;
+  currentImageIndex = indexes[nextPos];
   updateModalContent();
 }
 

@@ -142,8 +142,10 @@
 
               <!-- FOTO PREVIEW POJOK KANAN (OVERLAP AMAN) -->
               <div class="experience-media-preview">
-                <img src="lbhkalbar1.png" alt="Survey Topografi - LBH KALBAR" onclick="openModal(this)">
-              </div>
+              <img src="lbhkalbar1.png" alt="Team LBH KALBAR" data-description="Dokumentasi kegiatan survei topografi dan pemetaan geospasial di area tambang dan fasilitas pengolahan bauksit." onclick="openModal(this)">
+              <img src="lbhkalbar2.png" alt="Survey Topogtrafi dan GIS - LBH KALBAR" data-description="Dokumentasi kegiatan survei topografi dan pemetaan geospasial di area tambang dan fasilitas pengolahan bauksit." onclick="openModal(this)">
+              <img src="lbhkalbar3.png" alt="Survey WQC - LBH KALBAR" data-description="Dokumentasi kegiatan survei topografi dan pemetaan geospasial di area tambang dan fasilitas pengolahan bauksit." onclick="openModal(this)">
+            </div>
             </div>
           </div>
         </article>
@@ -190,7 +192,9 @@
 
               <!-- FOTO PREVIEW POJOK KANAN (OVERLAP AMAN) -->
               <div class="experience-media-preview">
-                <img src="cvamerta1.png" alt="Geoelectric Survey - Amerta Bumi" onclick="openModal(this)">
+              <img src="cvamerta1.png" alt="Geoelectric Survey - Amerta Bumi" data-description="Akuisisi data lapangan dengan metode geolistrik untuk memetakan kondisi bawah permukaan sebelum pengeboran eksplorasi." onclick="openModal(this)">
+              <img src="cvamerta1.png" alt="Geoelectric Survey - Amerta Bumi" data-description="Akuisisi data lapangan dengan metode geolistrik untuk memetakan kondisi bawah permukaan sebelum pengeboran eksplorasi." onclick="openModal(this)">
+              <img src="cvamerta1.png" alt="Geoelectric Survey - Amerta Bumi" data-description="Akuisisi data lapangan dengan metode geolistrik untuk memetakan kondisi bawah permukaan sebelum pengeboran eksplorasi." onclick="openModal(this)">
               </div>
             </div>
           </div>
@@ -231,7 +235,8 @@
 
               <!-- FOTO PREVIEW POJOK KANAN (OVERLAP AMAN) -->
               <div class="experience-media-preview">
-                <img src="foto-kerja-3.png" alt="Dokumentasi Administrasi - NBL" onclick="openModal(this)">
+              <img src="foto-kerja-3.png" alt="Dokumentasi Administrasi - NBL" data-description="Pekerjaan administrasi verifikasi data pengiriman dan pemantauan status armada agar distribusi berjalan lancar." onclick="openModal(this)">
+              <img src="foto-kerja-3.png" alt="Dokumentasi Administrasi - NBL" data-description="Pekerjaan administrasi verifikasi data pengiriman dan pemantauan status armada agar distribusi berjalan lancar." onclick="openModal(this)">
               </div>
             </div>
           </div>
@@ -276,6 +281,7 @@
               <!-- FOTO PREVIEW POJOK KANAN (OVERLAP AMAN) -->
               <div class="experience-media-preview">
                 <img src="asistant untan1.jpg" alt="Fieldwork Teaching Assistant - UNTAN" onclick="openModal(this)">
+                <img src="asistant untan1.jpg" alt="Dokumentasi Administrasi - NBL" data-description="Pekerjaan administrasi verifikasi data pengiriman dan pemantauan status armada agar distribusi berjalan lancar." onclick="openModal(this)">
               </div>
             </div>
           </div>
@@ -357,7 +363,7 @@
             <div class="skill-tags">
               <span class="app-tag">Bahasa Indonesia — Fluent</span>
               <span class="app-tag">Javanese — Fluent</span>
-              <span class="app-tag">English — Conversational</span>
+              <span class="app-tag">English — Conversational – TUTEP Score: 530/677</span>
             </div>
           </div>
         </div>
@@ -581,12 +587,14 @@
 <div class="preview-modal" id="galleryModal" role="dialog" aria-modal="true" aria-label="Experience photo preview">
   <button class="close-btn" type="button" aria-label="Close preview" onclick="closeModal()">&times;</button>
   <button class="nav-btn prev-btn" type="button" aria-label="Previous photo" onclick="changeImage(-1, event)">&#10094;</button>
-
   <div class="modal-box">
     <img id="modalImage" src="" alt="">
-    <p id="modalCaption"></p>
+    <div class="modal-info">
+      <p id="modalCaption"></p>
+      <p id="modalDesc"></p>
+    </div>
   </div>
-
+ 
   <button class="nav-btn next-btn" type="button" aria-label="Next photo" onclick="changeImage(1, event)">&#10095;</button>
 </div>
 
