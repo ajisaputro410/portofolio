@@ -691,7 +691,7 @@ section {
 
 /* TAMBAHAN: foto ke-2 dst menimpa foto sebelumnya (efek tumpukan buku) */
 .experience-media-preview img + img {
-  margin-left: -55px; /* makin besar angkanya, makin banyak yang tertimpa */
+  margin-left: -70px; /* makin besar angkanya, makin banyak yang tertimpa */
 }
 
 /* TAMBAHAN: foto pertama paling depan, yang berikutnya di belakangnya */
