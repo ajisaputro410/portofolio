@@ -97,3 +97,26 @@ document.addEventListener("keydown", event => {
   else if (event.key === "ArrowRight") changeImage(1);
   else if (event.key === "ArrowLeft") changeImage(-1);
 });
+
+// =====================================================
+// PROJECT CARD - CURSOR GLOW ANIMATION
+// =====================================================
+
+document.querySelectorAll("#project .project-card").forEach(card => {
+
+    card.addEventListener("mousemove", event => {
+        const rect = card.getBoundingClientRect();
+
+        const x = event.clientX - rect.left;
+        const y = event.clientY - rect.top;
+
+        card.style.setProperty("--mouse-x", `${x}px`);
+        card.style.setProperty("--mouse-y", `${y}px`);
+    });
+
+    card.addEventListener("mouseleave", () => {
+        card.style.setProperty("--mouse-x", "50%");
+        card.style.setProperty("--mouse-y", "50%");
+    });
+
+});
