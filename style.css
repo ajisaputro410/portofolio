@@ -337,7 +337,6 @@ section {
 /* =====================================================
    5. PROJECT 
 ===================================================== */
-
 #project {
     width: 100%;
     padding: 80px 5%;
@@ -411,7 +410,7 @@ section {
 
 /* HOVER CARD */
 #project .project-card:hover {
-    transform: translateY(-8px);
+    transform: translateY(-3px);
     border-color: #ff6428;
 
     box-shadow:
@@ -543,7 +542,6 @@ section {
     }
 }
 
-
 /* =====================================================
    6. SKILLS
 ===================================================== */
@@ -557,12 +555,51 @@ section {
 }
 
 .skill-group {
+    position: relative;
+    isolation: isolate;
     min-width: 0;
     padding: 1.6rem;
-    border: 1px solid var(--border-color);
+    border: 1px solid rgba(255, 92, 30, 0.55);
     border-radius: 1.6rem;
-    background: var(--card-bg);
-    transition: background .3s ease, border-color .3s ease;
+    background: linear-gradient(145deg, #111, #080808);
+    box-shadow:
+        0 0 8px rgba(255, 90, 30, 0.12),
+        inset 0 0 15px rgba(255, 90, 30, 0.03);
+    transition:
+        transform 0.4s ease,
+        border-color 0.4s ease,
+        box-shadow 0.4s ease;
+}
+
+.skill-group::before {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    z-index: -1;
+    border-radius: inherit;
+    background: linear-gradient(135deg, #ff4b16, #ff7a24);
+    -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    padding: 2px;
+    opacity: 0;
+    filter: blur(0px);
+    transition: opacity 0.4s ease;
+}
+
+.skill-group:hover {
+    transform: translateY(-3px);
+    border-color: #ff6428;
+    box-shadow:
+        0 0 12px rgba(255, 80, 20, 0.55),
+        0 0 28px rgba(255, 80, 20, 0.35),
+        0 15px 35px rgba(0, 0, 0, 0.5);
+}
+
+.skill-group:hover::before {
+    opacity: 1;
 }
 
 .skill-group h3 {
@@ -604,6 +641,7 @@ section {
     flex-shrink: 0;
     color: var(--accent);
 }
+
 .skill-bar {
     width: 100%;
     height: 7px;
@@ -611,6 +649,7 @@ section {
     border-radius: 20px;
     background: var(--bar-bg);
 }
+
 .skill-bar span {
     display: block;
     width: 0;
@@ -619,6 +658,7 @@ section {
     background: var(--accent);
     transition: width .5s ease;
 }
+
 .skill-tags {
     display: flex;
     flex-wrap: wrap;
@@ -664,37 +704,97 @@ section {
 /* =====================================================
    7. EDUCATION
 ===================================================== */
+
 .timeline {
     display: flex;
     flex-direction: column;
-    gap: 1.4rem;
+    gap: 5rem;
     width: 100%;
     max-width: 1100px;
     margin: 0 auto;
 }
 
+/* CARD */
+
 .linkedin-style-card {
+    position: relative;
+    isolation: isolate;
+
     width: 100%;
     margin: 0;
     padding: 1.8rem;
-    border: 1px solid var(--border-color);
+
+    border: 1px solid rgba(255, 92, 30, 0.55);
     border-radius: 1rem;
-    background: var(--card-bg);
-    transition: border-color .3s ease, transform .3s ease;
+
+    background: linear-gradient(145deg, #111, #080808);
+
+    box-shadow:
+        0 0 8px rgba(255, 90, 30, 0.12),
+        inset 0 0 15px rgba(255, 90, 30, 0.03);
+
+    transition:
+        transform 0.4s ease,
+        border-color 0.4s ease,
+        box-shadow 0.4s ease;
 }
 
-.linkedin-style-card:hover {
-    transform: translateY(-2px);
-    border-color: var(--accent);
+/* ORANGE LIGHT - BORDER OUTER */
+
+.linkedin-style-card::before {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    z-index: -1;
+    border-radius: inherit;
+
+    background: linear-gradient(
+        135deg,
+        #ff4b16,
+        #ff7a24
+    );
+
+    -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+
+    padding: 2px;
+
+    opacity: 0;
+    filter: blur(0px);
+
+    transition: opacity 0.4s ease;
 }
+
+/* HOVER CARD */
+
+.linkedin-style-card:hover {
+    transform: translateY(-3px);
+    border-color: #ff6428;
+
+    box-shadow:
+        0 0 12px rgba(255, 80, 20, 0.55),
+        0 0 28px rgba(255, 80, 20, 0.35),
+        0 15px 35px rgba(0, 0, 0, 0.5);
+}
+
+.linkedin-style-card:hover::before {
+    opacity: 1;
+}
+
+/* TIMELINE CONTENT */
 
 .linkedin-style-card .timeline-content {
     display: flex;
     align-items: flex-start;
-    gap: 1.6rem;
+    gap: rem;
     width: 100%;
     min-width: 0;
 }
+
+/* SCHOOL LOGO */
 
 .timeline-icon-inside {
     display: flex;
@@ -714,6 +814,8 @@ section {
     height: 100%;
     object-fit: contain;
 }
+
+/* TEXT */
 
 .timeline-text-inside {
     display: flex;
@@ -746,8 +848,9 @@ section {
     font-size: 1.3rem;
     line-height: 1.7;
 }
+
 /* =====================================================
-   EXPERIENCE — LINKEDIN STYLE
+   EXPERIENCE 
 ===================================================== */
 #experience .experience-timeline {
     gap: 1.4rem;
@@ -770,7 +873,7 @@ section {
 }
 
 /* =====================================================
-   EXPERIENCE — FOTO DENGAN KOTAK PUTIH
+   EXPERIENCE 
 ===================================================== */
 #experience .experience-image-inside {
     display: flex;
@@ -1175,7 +1278,7 @@ section {
 #licenses-certifications .certificate-timeline {
     display: flex;
     flex-direction: column;
-    gap: 1.2rem;
+    gap: 2rem;
     width: 100%;
 }
 
