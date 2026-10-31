@@ -63,7 +63,7 @@ body.light-theme {
 
 html {
     font-size: 62.5%;
-    scroll-behavior: smooth;
+    scroll-behavior: auto;
     scroll-padding-top: 2px;
 }
 
