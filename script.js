@@ -120,3 +120,36 @@ document.querySelectorAll("#project .project-card").forEach(card => {
     });
 
 });
+
+
+/* =========================================
+   BASIC CONTENT PROTECTION
+   ========================================= */
+
+// 1. Disable right-click context menu
+document.addEventListener("contextmenu", function (event) {
+    event.preventDefault();
+});
+
+// 2. Prevent dragging images
+document.addEventListener("dragstart", function (event) {
+    if (event.target.closest("img")) {
+        event.preventDefault();
+    }
+});
+
+// 3. Prevent image selection
+document.addEventListener("selectstart", function (event) {
+    if (event.target.closest("img")) {
+        event.preventDefault();
+    }
+});
+
+// 4. Prevent copying images through ordinary copy action
+document.addEventListener("copy", function (event) {
+    if (window.getSelection()?.anchorNode?.parentElement?.closest("img")) {
+        event.preventDefault();
+    }
+});
+
+console.log("Portfolio content protection enabled.");

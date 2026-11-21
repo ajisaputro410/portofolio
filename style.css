@@ -2059,3 +2059,21 @@ footer {
         transition-duration: .01ms !important;
     }
 }
+
+
+/* =========================================
+   IMAGE CONTENT PROTECTION
+   ========================================= */
+
+img {
+    -webkit-user-drag: none;
+    user-drag: none;
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+}
+
+/* Keep image display normal */
+img {
+    pointer-events: auto;
+}
